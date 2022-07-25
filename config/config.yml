@@ -1,0 +1,3 @@
+training_pipeline_config:
+  pipeline_name: IMDB
+  artifact_dir: artifact
