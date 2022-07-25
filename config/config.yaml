@@ -1,0 +1,11 @@
+training_pipeline_config:
+  pipeline_name: IMDB
+  artifact_dir: artifact
+
+data_ingestion_config:
+  author_username : lakshmi25npathi
+  kaggel_dataset_name : imdb-dataset-of-50k-movie-reviews
+  raw_data_dir: raw_data
+  ingested_dir: ingested_data
+  ingested_train_dir: train
+  ingested_test_dir: test
