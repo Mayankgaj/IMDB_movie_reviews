@@ -1,4 +1,4 @@
-from IMDB.entity.config_entity import DataIngestionConfig, TrainingPipelineConfig
+from IMDB.entity.config_entity import DataIngestionConfig, TrainingPipelineConfig, DataValidationConfig
 from IMDB.util.util import read_yaml_file
 from IMDB.logger import logging
 from IMDB.constant import *
@@ -58,6 +58,22 @@ class Configuration:
             )
             logging.info(f"Data Ingestion config: {data_ingestion_config}")
             return data_ingestion_config
+        except Exception as e:
+            raise IMDBException(e, sys) from e
+
+    def get_data_validation_config(self) -> DataValidationConfig:
+        try:
+            data_validation_config = self.config_info[DATA_VALIDATION_CONFIG_KEY]
+
+            schema_file_path = os.path.join(ROOT_DIR,
+                                            data_validation_config[DATA_VALIDATION_SCHEMA_DIR_KEY],
+                                            data_validation_config[DATA_VALIDATION_SCHEMA_FILE_NAME_KEY]
+                                            )
+
+            data_validation_config = DataValidationConfig(
+                schema_file_path=schema_file_path
+            )
+            return data_validation_config
         except Exception as e:
             raise IMDBException(e, sys) from e
 

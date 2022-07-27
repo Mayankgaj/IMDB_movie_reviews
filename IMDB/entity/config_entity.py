@@ -5,3 +5,6 @@ DataIngestionConfig = namedtuple("DataIngestionConfig",
                                   "kaggel_dataset_name", "ingested_test_dir"])
 
 TrainingPipelineConfig = namedtuple("TrainingPipelineConfig", ["artifact_dir"])
+
+DataValidationConfig = namedtuple("DataValidationConfig",
+                                  ["schema_file_path"])
