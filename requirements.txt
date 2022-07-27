@@ -5,4 +5,5 @@ Flask
 gunicorn
 PyYAML
 kaggle
+evidently
 -e .
